@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "../styles/App.css";
 @import "../styles/index.css";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@config "../../tailwind.config.js";
+
+
+
 
