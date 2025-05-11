@@ -39,6 +39,24 @@ const projects: Project[] = [
     image: 'data:image/svg+xml,%3Csvg width="800" height="600" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="100%25" height="100%25" fill="%23f0f0f0"/%3E%3Cpath d="M200,100 L600,100 L600,500 L200,500 Z" stroke="%23333" stroke-width="40" opacity="0.1" fill="none"/%3E%3C/svg%3E',
     link: '#',
     github: 'https://github.com',
+  },
+   {
+    id: 'project4',
+    title: 'Better.Giving',
+    description: 'Marketplace platform for NGOs to connect with donors, volunteers, and partners to support meaningful social impact.',
+    tags: ['React', 'Typescript', 'Framer Motion','Nodejs','Expressjs'],
+    image: 'https://ibb.co/N2DKpdPS',
+    link: '#',
+    github: 'https://github.com',
+  },
+   {
+    id: 'project5',
+    title: 'SSBBULLSEYE',
+    description: 'Online coaching platform for SSB Bullseye preparation, offering expert guidance, mock tests, and personalized mentoring',
+    tags: ['React', 'Typescript', 'Framer Motion','Excel'],
+    image: 'https://ibb.co/Y4q6jxhS',
+    link: '#',
+    github: 'https://github.com',
   }
 ];
 
