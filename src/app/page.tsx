@@ -8,6 +8,7 @@ import ProjectsSection from '@/components/ProjectsSection';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import SkillsSection from '@/components/SkillsSection';
+import TeamCarouselSection from "@/components/TeamCarouselSection";
 
 const Index = () => {
     // Smooth scroll effect for anchor links
@@ -110,6 +111,8 @@ const Index = () => {
                     </div>
                 </div>
             </section>
+
+            <TeamCarouselSection/>
 
             {/* CTA Section */}
             <section id="cta" className="py-24 bg-primary text-background relative overflow-hidden">
