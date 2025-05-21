@@ -5,8 +5,8 @@ import { PerspectiveCamera } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Beaver-inspired procedural model
-function ProceduralBeaverModel({ scrollProgress = 0 }: { scrollProgress?: number }) {
-  const modelRef = useRef<THREE.Group>(null);
+function ProceduralBeaverModel({ scrollProgress = 0 }) {
+  const modelRef = useRef(null);
   
   useFrame((state) => {
     if (modelRef.current) {
@@ -136,7 +136,7 @@ function ProceduralBeaverModel({ scrollProgress = 0 }: { scrollProgress?: number
   );
 }
 
-function InteractiveModelScene({ scrollProgress = 0 }: { scrollProgress?: number }) {
+function InteractiveModelScene({ scrollProgress = 0 }) {
   return (
     <>
       <PerspectiveCamera makeDefault position={[0, 0, 3]} />
