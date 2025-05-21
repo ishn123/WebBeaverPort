@@ -1,12 +1,7 @@
 import nodemailer from "nodemailer";
 
-interface EmailData {
-    name: string;
-    email: string;
-    message: string;
-}
 
-export async function sendCustomerEmail(data: EmailData): Promise<void> {
+export async function sendCustomerEmail(data){
     const transporter = nodemailer.createTransport({
         service: 'Gmail', // Or use another SMTP provider
         auth: {
