@@ -73,9 +73,9 @@ const Footer = ({setIsOpen}:FooterProps) => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-wood" />
-                <a href="mailto:info@webbeaver.com" className="text-gray-300 hover:text-wood transition-colors">
+                <Link href="mailto:info@webbeaver.com" className="text-gray-300 hover:text-wood transition-colors">
                   info@webeaver.com
-                </a>
+                </Link>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-5 w-5 text-wood" />

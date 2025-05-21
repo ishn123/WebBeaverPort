@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Environment, OrbitControls, Text, useCursor } from '@react-three/drei';
+import { Environment, OrbitControls, useCursor } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Interactive node component

@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 
 import Hero from '@/components/Hero';
 import ServicesSection from '@/components/ServicesSection';
@@ -7,12 +7,13 @@ import ProjectsSection from '@/components/ProjectsSection';
 import ContactForm from '@/components/ContactForm';
 import SkillsSection from '@/components/SkillsSection';
 import TeamCarouselSection from "@/components/TeamCarouselSection";
+import Link from "next/link";
 
 const Index = () => {
     // Smooth scroll effect for anchor links
     useEffect(() => {
-        const handleAnchorClick = (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
+        const handleAnchorClick = (e) => {
+            const target = e.target;
             console.log(target,"BOY")
             if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
                 e.preventDefault();
@@ -129,7 +130,7 @@ const Index = () => {
                             Let&#39;s collaborate to transform your vision into a digital reality that stands apart
                             through thoughtful design and flawless execution.
                         </p>
-                        <a
+                        <Link
                             href="#contact"
                             className="relative group overflow-hidden border-2 border-background px-10 py-4 inline-block text-lg font-medium"
                         >
@@ -137,7 +138,7 @@ const Index = () => {
                 Start a Conversation
               </span>
                             <div className="absolute inset-0 bg-background transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>
