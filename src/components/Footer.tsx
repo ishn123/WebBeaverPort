@@ -79,17 +79,17 @@ const Footer = ({setIsOpen}:FooterProps) => {
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-5 w-5 text-wood" />
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-wood transition-colors">
+                <Link href="tel:+1234567890" className="text-gray-300 hover:text-wood transition-colors">
                   +49 (155) 60803727
-                </a>
+                </Link>
               </li>
               <li className="mt-4">
-                <a 
+                <Link
                   href="/#contact"
                   className="px-4 py-2 bg-wood text-white rounded-lg inline-block hover:bg-wood-dark transition-colors"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
