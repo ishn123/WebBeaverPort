@@ -62,7 +62,7 @@ const skillCategories = [
 
 const SkillBar = ({ skill, index }) => {
    // Random value between 85-99%
-  const [randomPercentage,setRandomPercentage] = useState<number>(0);
+  const [randomPercentage,setRandomPercentage] = useState(0);
   useEffect(() => {
     const randomPercentage = Math.floor(Math.random() * 15) + 85;
     setRandomPercentage(randomPercentage);
