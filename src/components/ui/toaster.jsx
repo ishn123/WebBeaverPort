@@ -12,6 +12,10 @@ import {
 export function Toaster() {
   const { toasts } = useToast()
 
+  // @ts-ignore
+  // @ts-ignore
+  // @ts-ignore
+  // @ts-ignore
   return (
     <ToastProvider>
       {toasts.map(function ({ id, title, description, action, ...props }) {

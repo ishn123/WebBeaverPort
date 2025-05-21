@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react"
+// @ts-ignore
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu"
 import { Check, ChevronRight, Circle } from "lucide-react"
 

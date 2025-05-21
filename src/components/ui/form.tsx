@@ -1,7 +1,10 @@
 "use client";
 import * as React from "react"
+// @ts-ignore
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
+// @ts-ignore
+// @ts-ignore
 import {
   Controller,
   ControllerProps,

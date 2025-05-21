@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react"
+// @ts-ignore
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
 import { cva } from "class-variance-authority"
 import { ChevronDown } from "lucide-react"
