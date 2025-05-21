@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -9,12 +9,15 @@ import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import SkillsSection from '@/components/SkillsSection';
 import TeamCarouselSection from "@/components/TeamCarouselSection";
+import CareersPopup from "@/components/CareersPopup";
+import {b} from "framer-motion/dist/types.d-CQt5spQA";
 
 const Index = () => {
     // Smooth scroll effect for anchor links
     useEffect(() => {
         const handleAnchorClick = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
+            console.log(target,"BOY")
             if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
                 e.preventDefault();
                 const id = target.getAttribute('href')?.substring(1);
@@ -38,7 +41,6 @@ const Index = () => {
 
     return (
         <div className="min-h-screen overflow-x-hidden bg-background">
-            <Navbar />
             <Hero />
             <ProjectsSection />
             <SkillsSection />
@@ -128,7 +130,7 @@ const Index = () => {
                             Ready to Create Something Exceptional?
                         </h2>
                         <p className="text-lg mb-10 opacity-80 max-w-2xl mx-auto">
-                            Let's collaborate to transform your vision into a digital reality that stands apart
+                            Let&#39;s collaborate to transform your vision into a digital reality that stands apart
                             through thoughtful design and flawless execution.
                         </p>
                         <a
@@ -145,7 +147,7 @@ const Index = () => {
             </section>
 
             <ContactForm />
-            <Footer />
+
         </div>
     );
 };

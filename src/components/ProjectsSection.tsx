@@ -48,6 +48,15 @@ const projects: Project[] = [
         image: 'https://i.ibb.co/spMh3Zq4/Screenshot-2025-05-11-211923.jpg',
         link: 'https://ssbbullseye.com/',
         github: 'https://github.com',
+    },
+    {
+        id: 'project6',
+        title: 'RoboRelax',
+        description: 'Ester Ki-gesteuerter Massagesalon in Deutschland',
+        tags: ['React', 'Typescript', 'Framer Motion','Excel'],
+        image: '/img.png',
+        link: 'https://roborelax.de',
+        github: 'https://github.com',
     }
 ];
 

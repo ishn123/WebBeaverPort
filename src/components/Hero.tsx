@@ -23,7 +23,7 @@ const Hero = () => {
   const ref = useRef(null);
   const containerRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [scrollDirection, setScrollDirection] = useState("down");
+  const [, setScrollDirection] = useState("down");
   const [lastScrollY, setLastScrollY] = useState(0);
 
   // Track scroll direction

@@ -1,14 +1,19 @@
 "use client";
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import {log} from "node:util";
 
-const Footer = () => {
+interface FooterProps {
+  setIsOpen:React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Footer = ({setIsOpen}:FooterProps) => {
   const currentYear = new Date().getFullYear();
   
   return (
     <footer className="bg-bark-dark text-white relative overflow-hidden">
       {/* Wood texture overlay */}
-      <div className="absolute inset-0 wood-grain opacity-5"></div>
+      <div className="absolute inset-0 wood-grain opacity-5 h-max"></div>
       
       {/* Log decorations */}
       <div className="absolute left-0 top-0 w-full h-8 bg-bark-light opacity-20 transform -skew-y-2"></div>
@@ -27,16 +32,13 @@ const Footer = () => {
               Building digital dams of distinction. We craft websites that stand the test of time.
             </p>
             <div className="flex space-x-3">
-              <a href="#" className="text-gray-300 hover:text-wood transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-wood transition-colors">
+              <a href="https://x.com/Ish_aro" className="text-gray-300 hover:text-wood transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-wood transition-colors">
+              <a href="https://www.instagram.com/ishn__/" className="text-gray-300 hover:text-wood transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-wood transition-colors">
+              <a href="https://www.linkedin.com/in/ishan-developer" className="text-gray-300 hover:text-wood transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -46,11 +48,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4 border-b border-wood pb-2">Services</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-wood transition-colors">UI/UX Design</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-wood transition-colors">WordPress Development</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-wood transition-colors">Web Applications</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-wood transition-colors">E-commerce Solutions</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-wood transition-colors">SEO Optimization</a></li>
+              <li><a href="/ui-ux" className="text-gray-300 hover:text-wood transition-colors">UI/UX Design</a></li>
+              <li><a href="/wordpress-development" className="text-gray-300 hover:text-wood transition-colors">WordPress Development</a></li>
+              <li><a href="/web-applications" className="text-gray-300 hover:text-wood transition-colors">Web Applications</a></li>
+              <li><a href="/ecommerce-development" className="text-gray-300 hover:text-wood transition-colors">E-commerce Solutions</a></li>
+              <li><a href="/seo-optimization" className="text-gray-300 hover:text-wood transition-colors">SEO Optimization</a></li>
             </ul>
           </div>
           
@@ -58,11 +60,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4 border-b border-wood pb-2">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-wood transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-wood transition-colors">Portfolio</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-wood transition-colors">Testimonials</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-wood transition-colors">Careers</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-wood transition-colors">Privacy Policy</a></li>
+              <li><a href="/AboutUs" className="text-gray-300 hover:text-wood transition-colors">About Us</a></li>
+              <li><a href="/#home" className="text-gray-300 hover:text-wood transition-colors">Portfolio</a></li>
+              <li><a onClick={()=>setIsOpen(true)} className="text-gray-300 hover:text-wood transition-colors">Careers</a></li>
             </ul>
           </div>
           
@@ -73,18 +73,18 @@ const Footer = () => {
               <li className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-wood" />
                 <a href="mailto:info@webbeaver.com" className="text-gray-300 hover:text-wood transition-colors">
-                  info@webbeaver.com
+                  info@webeaver.com
                 </a>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-5 w-5 text-wood" />
                 <a href="tel:+1234567890" className="text-gray-300 hover:text-wood transition-colors">
-                  +1 (234) 567-890
+                  +49 (155) 60803727
                 </a>
               </li>
               <li className="mt-4">
                 <a 
-                  href="#contact" 
+                  href="/#contact"
                   className="px-4 py-2 bg-wood text-white rounded-lg inline-block hover:bg-wood-dark transition-colors"
                 >
                   Contact Us
@@ -97,7 +97,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-gray-700 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; {currentYear} WebBeaver. All rights reserved. 
+            &copy; {currentYear} Webeaver. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm mt-2 md:mt-0">
             Crafted with 🌲 by the Beaver Colony
