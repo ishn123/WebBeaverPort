@@ -8,11 +8,10 @@ import { Environment, OrbitControls, useCursor } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Interactive node component
-function InteractiveNode({ position, size = 0.5, color = "#ffffff", index }: 
-  { position: [number, number, number], size?: number, color?: string, index: number }) {
+function InteractiveNode({ position, size = 0.5, color = "#ffffff", index }) {
   const [hovered, setHovered] = useState(false);
   const [active, setActive] = useState(false);
-  const meshRef = useRef<THREE.Mesh>(null);
+  const meshRef = useRef(null);
   
   useCursor(hovered);
   
@@ -52,11 +51,7 @@ function InteractiveNode({ position, size = 0.5, color = "#ffffff", index }:
 }
 
 // Log component for beaver dam-like structure
-function Log({ position, rotation, scale = [0.2, 1, 0.2] }: {
-  position: [number, number, number],
-  rotation: [number, number, number],
-  scale?: [number, number, number]
-}) {
+function Log({ position, rotation, scale = [0.2, 1, 0.2] }) {
   return (
     <mesh position={position} rotation={rotation} scale={scale}>
       <cylinderGeometry args={[1, 1, 1, 8]} />
@@ -66,10 +61,7 @@ function Log({ position, rotation, scale = [0.2, 1, 0.2] }: {
 }
 
 // Water ripple effect
-function WaterRipple({ position = [0, -2, 0], color = "#333333" }: {
-  position?: [number, number, number],
-  color?: string
-}) {
+function WaterRipple({ position = [0, -2, 0], color = "#333333" }) {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
   
   useFrame(({ clock }) => {
@@ -113,12 +105,12 @@ function WaterRipple({ position = [0, -2, 0], color = "#333333" }: {
   );
 }
 
-function BeaverDamScene({ scrollY }: { scrollY: number }) {
-  const groupRef = useRef<THREE.Group>(null);
-  const waterRef = useRef<THREE.Mesh>(null);
+function BeaverDamScene({ scrollY }) {
+  const groupRef = useRef(null);
+  const waterRef = useRef(null);
   
   // Generate log positions for beaver dam
-  const logs = useRef<{position: [number, number, number], rotation: [number, number, number], scale: [number, number, number]}[]>([]);
+  const logs = useRef([]);
   
   useEffect(() => {
     // Generate random logs for the dam
@@ -178,7 +170,7 @@ function BeaverDamScene({ scrollY }: { scrollY: number }) {
     const z = Math.cos(angle) * radius;
     
     nodes.push({
-      position: [x, y, z] as [number, number, number],
+      position: [x, y, z],
       size: 0.1 + Math.random() * 0.1,
       color: i % 2 === 0 ? "#333333" : "#444444",
       index: i
@@ -225,7 +217,7 @@ function BeaverDamScene({ scrollY }: { scrollY: number }) {
   );
 }
 
-function Scene({ scrollY }: { scrollY: number }) {
+function Scene({ scrollY }) {
   const { camera } = useThree();
   
   useEffect(() => {
