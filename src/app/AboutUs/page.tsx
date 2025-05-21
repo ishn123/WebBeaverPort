@@ -1,15 +1,13 @@
 "use client";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import BeaverCursor from "@/components/BeaverCursor";
+import Link from "next/link";
 
 const bgColor = "#8c7b6f";
 const primaryText = "#fffaf7"; // Slightly warm white
 const secondaryText = "#e5ded8"; // Softer light brown
 const hoverShadow = "rgba(255, 250, 247, 0.2)";
-const buttonHoverText = "#3a2f28"; // Deep contrast brown
+// Deep contrast brown
 
 const teamMembers = [
     {
@@ -45,17 +43,18 @@ const teamMembers = [
 export default function AboutUs() {
     return (
         <section className="py-20 px-6" style={{ backgroundColor: bgColor, color: primaryText }} id="about">
+            <BeaverCursor/>
             <div className="max-w-7xl mx-auto text-center">
                 <h1 className="text-5xl md:text-6xl font-bold">Meet Webeaver</h1>
                 <p className="text-lg md:text-xl mt-6 max-w-3xl mx-auto" style={{ color: secondaryText }}>
-                    We’re a high-energy squad of developers, designers, and digital experts building powerful, elegant, and scalable web solutions since 2023.
+                    We &lsquo;re a high-energy squad of developers, designers, and digital experts building powerful, elegant, and scalable web solutions since 2023.
                 </p>
-                <a
+                <Link
                     href="/#projects"
                     className="mt-10 inline-block px-8 py-3 border border-white hover:bg-[#fffaf7] hover:text-[#3a2f28] transition-all duration-300"
                 >
                     View Our Projects
-                </a>
+                </Link>
             </div>
 
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 mt-20 max-w-7xl mx-auto">

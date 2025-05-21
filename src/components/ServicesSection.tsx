@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Palette, Globe, Database, Layers, Shuffle } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 const services = [
   {

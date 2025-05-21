@@ -1,7 +1,8 @@
 "use client";
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
-import {log} from "node:util";
+import {Twitter, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import Link from "next/link";
+
 
 interface FooterProps {
   setIsOpen:React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,15 +33,15 @@ const Footer = ({setIsOpen}:FooterProps) => {
               Building digital dams of distinction. We craft websites that stand the test of time.
             </p>
             <div className="flex space-x-3">
-              <a href="https://x.com/Ish_aro" className="text-gray-300 hover:text-wood transition-colors">
+              <Link href="https://x.com/Ish_aro" className="text-gray-300 hover:text-wood transition-colors">
                 <Twitter className="h-5 w-5" />
-              </a>
-              <a href="https://www.instagram.com/ishn__/" className="text-gray-300 hover:text-wood transition-colors">
+              </Link>
+              <Link href="https://www.instagram.com/ishn__/" className="text-gray-300 hover:text-wood transition-colors">
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a href="https://www.linkedin.com/in/ishan-developer" className="text-gray-300 hover:text-wood transition-colors">
+              </Link>
+              <Link href="https://www.linkedin.com/in/ishan-developer" className="text-gray-300 hover:text-wood transition-colors">
                 <Linkedin className="h-5 w-5" />
-              </a>
+              </Link>
             </div>
           </div>
           
@@ -48,11 +49,11 @@ const Footer = ({setIsOpen}:FooterProps) => {
           <div>
             <h3 className="text-lg font-bold mb-4 border-b border-wood pb-2">Services</h3>
             <ul className="space-y-2">
-              <li><a href="/ui-ux" className="text-gray-300 hover:text-wood transition-colors">UI/UX Design</a></li>
-              <li><a href="/wordpress-development" className="text-gray-300 hover:text-wood transition-colors">WordPress Development</a></li>
-              <li><a href="/web-applications" className="text-gray-300 hover:text-wood transition-colors">Web Applications</a></li>
-              <li><a href="/ecommerce-development" className="text-gray-300 hover:text-wood transition-colors">E-commerce Solutions</a></li>
-              <li><a href="/seo-optimization" className="text-gray-300 hover:text-wood transition-colors">SEO Optimization</a></li>
+              <li><Link href="/ui-ux" className="text-gray-300 hover:text-wood transition-colors">UI/UX Design</Link></li>
+              <li><Link href="/wordpress-development" className="text-gray-300 hover:text-wood transition-colors">WordPress Development</Link></li>
+              <li><Link href="/web-applications" className="text-gray-300 hover:text-wood transition-colors">Web Applications</Link></li>
+              <li><Link href="/ecommerce-development" className="text-gray-300 hover:text-wood transition-colors">E-commerce Solutions</Link></li>
+              <li><Link href="/seo-optimization" className="text-gray-300 hover:text-wood transition-colors">SEO Optimization</Link></li>
             </ul>
           </div>
           
@@ -60,9 +61,9 @@ const Footer = ({setIsOpen}:FooterProps) => {
           <div>
             <h3 className="text-lg font-bold mb-4 border-b border-wood pb-2">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="/AboutUs" className="text-gray-300 hover:text-wood transition-colors">About Us</a></li>
-              <li><a href="/#home" className="text-gray-300 hover:text-wood transition-colors">Portfolio</a></li>
-              <li><a onClick={()=>setIsOpen(true)} className="text-gray-300 hover:text-wood transition-colors">Careers</a></li>
+              <li><Link href="/AboutUs" className="text-gray-300 hover:text-wood transition-colors">About Us</Link></li>
+              <li><Link href="/#home" className="text-gray-300 hover:text-wood transition-colors">Portfolio</Link></li>
+              <li><Link href="" onClick={()=>setIsOpen(true)} className="text-gray-300 hover:text-wood transition-colors">Careers</Link></li>
             </ul>
           </div>
           

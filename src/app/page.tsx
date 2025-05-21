@@ -1,16 +1,12 @@
 "use client";
 import React, {useEffect, useState} from 'react';
 
-import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ServicesSection from '@/components/ServicesSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactForm from '@/components/ContactForm';
-import Footer from '@/components/Footer';
 import SkillsSection from '@/components/SkillsSection';
 import TeamCarouselSection from "@/components/TeamCarouselSection";
-import CareersPopup from "@/components/CareersPopup";
-import {b} from "framer-motion/dist/types.d-CQt5spQA";
 
 const Index = () => {
     // Smooth scroll effect for anchor links

@@ -60,7 +60,7 @@ const skillCategories = [
   }
 ];
 
-const SkillBar = ({ skill, index }: { skill: string; index: number }) => {
+const SkillBar = ({ skill, index }) => {
    // Random value between 85-99%
   const [randomPercentage,setRandomPercentage] = useState<number>(0);
   useEffect(() => {
@@ -90,7 +90,7 @@ const SkillBar = ({ skill, index }: { skill: string; index: number }) => {
   );
 };
 
-const SkillCard = ({ category, index }: { category: any; index: number }) => {
+const SkillCard = ({ category, index }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   
@@ -109,7 +109,7 @@ const SkillCard = ({ category, index }: { category: any; index: number }) => {
       </div>
       
       <div className="space-y-4">
-        {category.skills.map((skill: string, skillIndex: number) => (
+        {category.skills.map((skill, skillIndex) => (
           <SkillBar key={skillIndex} skill={skill} index={skillIndex} />
         ))}
       </div>

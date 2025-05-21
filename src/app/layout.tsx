@@ -1,8 +1,7 @@
 "use client";
 import React, {useState} from "react";
-import type { Metadata } from 'next'
 
-// These styles apply to every route in the application
+
 import './globals.css'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

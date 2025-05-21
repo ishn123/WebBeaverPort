@@ -53,6 +53,7 @@ const ContactForm = () => {
         message: '',
       });
     } catch (error) {
+      console.log(error)
       toast.error('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -74,8 +75,8 @@ const ContactForm = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-wood-dark">Build With Us</h2>
             <p className="text-bark max-w-2xl mx-auto">
-              Ready to create something amazing? Let's collaborate and build your digital dam together. 
-              Fill out the form below and we'll gnaw through the details.
+              Ready to create something amazing? Let &lsquo;s collaborate and build your digital dam together.
+              Fill out the form below and we &lsquo;ll gnaw through the details.
             </p>
           </div>
           

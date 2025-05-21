@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { ArrowUpRight, ExternalLink, Github } from 'lucide-react';
+import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
 interface Project {
     id: string;
