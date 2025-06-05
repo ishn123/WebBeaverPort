@@ -120,7 +120,7 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="container mx-auto px-4 py-8">
+            <div className="container mx-auto px-4 py-8 bg-white">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.name}
