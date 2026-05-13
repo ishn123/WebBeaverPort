@@ -37,7 +37,15 @@ const teamMembers = [
         role: "UI/UX Designer",
         bio: "Certified UI/UX designer skilled in user research, wireframing, prototyping, and visual design. I design interfaces that feel as good as they look.",
         imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=Emily"
+    },
+    {
+        id: 5,
+        name: "Abhishek Kumar",
+        role: "Project Manager",
+        bio: "I have 2.5 years of experience in various management and strategy roles, where I have developed a strong foundation in project coordination and business insights. Currently, I am working as a Working Student – Customer Success Onboarding Analyst at SAP LeanIX. I contribute to multiple aspects of the project management pipeline and support data-driven decision-making by generating insights through analytics.",
+        imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=Emily"
     }
+
 ];
 
 export default function AboutUs() {

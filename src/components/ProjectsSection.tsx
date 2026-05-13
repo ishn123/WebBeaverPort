@@ -104,13 +104,13 @@ const ProjectsSection = () => {
 
                 <div className="relative">
                     {/* Gradient overlays for the carousel edges */}
-                    <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
-                    <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
 
                     <div className="overflow-hidden">
                         <motion.div
                             ref={carouselRef}
-                            className="flex gap-8 py-4"
+                            className="flex gap-4 sm:gap-6 md:gap-8 py-4"
                             animate={controls}
                         >
                             {/* Original projects */}
@@ -152,7 +152,7 @@ const ProjectsSection = () => {
 const ProjectCard = ({ project, index }: { project: Project, index: number }) => {
     return (
         <motion.div
-            className="group relative flex-shrink-0 w-[300px] md:w-[350px] rounded-md border border-accent2-light bg-background overflow-hidden"
+            className="group relative flex-shrink-0 w-[260px] sm:w-[300px] md:w-[350px] max-w-[85vw] rounded-md border border-accent2-light bg-background overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

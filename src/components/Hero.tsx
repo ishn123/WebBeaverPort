@@ -78,10 +78,10 @@ const Hero = () => {
   const subtitle = "DIGITAL CRAFTSMANSHIP";
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       ref={containerRef}
-      className="relative min-h-screen pt-20 overflow-hidden bg-background"
+      className="relative min-h-screen pt-20 sm:pt-24 overflow-hidden bg-background"
     >
       {/* Add the beaver cursor component */}
       <BeaverCursor />
@@ -113,8 +113,8 @@ const Hero = () => {
         />
       </div>
       
-      <motion.div 
-        className="container mx-auto px-4 flex flex-col h-[calc(100vh-80px)]"
+      <motion.div
+        className="container mx-auto px-4 sm:px-6 flex flex-col min-h-[calc(100svh-5rem)] md:h-[calc(100vh-80px)]"
         style={{ opacity, scale, y }}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
@@ -160,14 +160,14 @@ const Hero = () => {
             </div>
             
             <div className="overflow-hidden mb-2">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-2 text-primary">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-2 text-primary break-words">
                 {splitText(title)}
               </h1>
             </div>
-            
+
             <div className="overflow-hidden">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-primary">
-                {splitText(subtitle)}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-primary break-words">
+                {subtitle}
               </h1>
             </div>
             
@@ -179,7 +179,7 @@ const Hero = () => {
             />
             
             <motion.p
-              className="text-lg text-mono-dark/80 max-w-md mb-8"
+              className="text-base sm:text-lg text-mono-dark/80 max-w-xs sm:max-w-md mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 1.2, duration: 0.8 }}
@@ -187,15 +187,15 @@ const Hero = () => {
               We build dams of digital excellence. Creating thoughtful web experiences with precision and care, just like a beaver crafts its home.
             </motion.p>
             
-            <motion.div 
-              className="flex flex-wrap gap-4"
+            <motion.div
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 w-full sm:w-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 1.5, duration: 0.8 }}
             >
-              <a 
-                href="#projects" 
-                className="relative group overflow-hidden border-2 border-primary px-8 py-3 inline-flex items-center gap-2"
+              <a
+                href="#projects"
+                className="relative group overflow-hidden border-2 border-primary px-6 sm:px-8 py-3 inline-flex items-center justify-center gap-2 text-center min-h-[44px]"
                 data-cursor-text="View Work"
               >
                 <span className="relative z-10 text-primary group-hover:text-background transition-colors duration-300">
@@ -203,10 +203,10 @@ const Hero = () => {
                 </span>
                 <div className="absolute inset-0 bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
               </a>
-              
-              <a 
-                href="#contact" 
-                className="relative group border-2 border-mono-dark/10 px-8 py-3 hover:border-mono-dark/30 transition-colors duration-300"
+
+              <a
+                href="#contact"
+                className="relative group border-2 border-mono-dark/10 px-6 sm:px-8 py-3 hover:border-mono-dark/30 transition-colors duration-300 inline-flex items-center justify-center text-center min-h-[44px]"
                 data-cursor-text="Get in Touch"
               >
                 <span className="text-mono-dark/80 group-hover:text-mono-dark transition-colors duration-300">
@@ -216,9 +216,9 @@ const Hero = () => {
             </motion.div>
           </motion.div>
           
-          {/* Right content - 3D scene */}
-          <motion.div 
-            className="flex items-center justify-center z-0 hidden md:block"
+          {/* Right content - 3D scene (desktop/tablet only) */}
+          <motion.div
+            className="hidden md:flex items-center justify-center z-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.5 }}
@@ -228,25 +228,25 @@ const Hero = () => {
         </div>
 
         {/* Scroll indicator */}
-        <motion.div 
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        <motion.div
+          className="hidden sm:flex absolute bottom-6 md:bottom-12 left-1/2 transform -translate-x-1/2 flex-col items-center pointer-events-none"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 1 }}
         >
-          <motion.p className="text-mono-dark/40 text-sm tracking-wide mb-2">SCROLL</motion.p>
+          <motion.p className="text-mono-dark/40 text-xs sm:text-sm tracking-wide mb-2">SCROLL</motion.p>
           <motion.div
-            animate={{ 
+            animate={{
               y: [0, 10, 0],
               opacity: [0.5, 1, 0.5]
             }}
-            transition={{ 
-              duration: 1.5, 
-              repeat: Infinity, 
-              repeatType: "loop" 
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatType: "loop"
             }}
           >
-            <ArrowDown className="w-6 h-6 text-mono-dark/50" />
+            <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6 text-mono-dark/50" />
           </motion.div>
         </motion.div>
       </motion.div>

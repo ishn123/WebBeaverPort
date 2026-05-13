@@ -40,6 +40,8 @@
     padding: 2rem;
     max-width: 500px;
     width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
     border: 1px solid white;
     position: relative;
     animation: fadeIn 0.3s ease-out;
@@ -173,4 +175,57 @@
 .submit-btn:disabled {
     opacity: 0.7;
     cursor: not-allowed;
+}
+
+/* Responsive tweaks for small phones */
+@media (max-width: 480px) {
+    .popup-content {
+        padding: 1.25rem;
+        width: 94%;
+    }
+
+    .popup-content h2 {
+        font-size: 1.3rem;
+        letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+        font-size: 0.875rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .careers-form {
+        gap: 1.25rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    .form-group label {
+        top: 0.75rem;
+        left: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .file-label {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .submit-btn {
+        padding: 0.875rem;
+        font-size: 0.95rem;
+    }
+
+    .close-btn {
+        top: 0.5rem;
+        right: 0.75rem;
+        font-size: 1.75rem;
+        line-height: 1;
+        padding: 0.25rem 0.5rem;
+    }
 }

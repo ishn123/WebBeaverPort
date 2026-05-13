@@ -7,15 +7,28 @@ const BeaverCursor = () => {
   const [isClicking, setIsClicking] = useState(false);
   const [isHoveringLink, setIsHoveringLink] = useState(false);
   const [cursorText, setCursorText] = useState("");
+  const [isFinePointer, setIsFinePointer] = useState(false);
 
   useEffect(() => {
+    // Only enable the custom cursor on devices that have a precise pointer
+    // (mouse/trackpad). Touch devices should keep their native behavior.
+    const mq = window.matchMedia('(pointer: fine)');
+    setIsFinePointer(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsFinePointer(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
+    if (!isFinePointer) return;
+
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
     const handleMouseDown = () => setIsClicking(true);
     const handleMouseUp = () => setIsClicking(false);
-    
+
     const handleLinkHoverIn = (e: Event) => {
       setIsHoveringLink(true);
       const target = e.target as HTMLElement;
@@ -24,7 +37,7 @@ const BeaverCursor = () => {
         setCursorText(cursorTextAttr);
       }
     };
-    
+
     const handleLinkHoverOut = () => {
       setIsHoveringLink(false);
       setCursorText("");
@@ -33,29 +46,30 @@ const BeaverCursor = () => {
     window.addEventListener('mousemove', updateMousePosition);
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
-    
+
     const clickableElements = document.querySelectorAll('a, button, input[type="button"], input[type="submit"], .clickable');
     clickableElements.forEach(element => {
       element.addEventListener('mouseenter', handleLinkHoverIn);
       element.addEventListener('mouseleave', handleLinkHoverOut);
     });
 
-    // Hide the default cursor
     document.body.style.cursor = 'none';
 
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
-      
+
       clickableElements.forEach(element => {
         element.removeEventListener('mouseenter', handleLinkHoverIn);
         element.removeEventListener('mouseleave', handleLinkHoverOut);
       });
-      
+
       document.body.style.cursor = 'auto';
     };
-  }, []);
+  }, [isFinePointer]);
+
+  if (!isFinePointer) return null;
 
   return (
     <div className="pointer-events-none fixed left-0 top-0 z-50">

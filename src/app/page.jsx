@@ -10,26 +10,22 @@ import TeamCarouselSection from "@/components/TeamCarouselSection";
 import Link from "next/link";
 
 const Index = () => {
-    // Smooth scroll effect for anchor links
+    // Smooth scroll effect for anchor links — relies on `scroll-padding-top`
+    // set globally in index.css to compensate for the fixed Navbar.
     useEffect(() => {
         const handleAnchorClick = (e) => {
-            const target = e.target;
-            console.log(target,"BOY")
-            if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
-                e.preventDefault();
-                const id = target.getAttribute('href')?.substring(1);
-                const element = document.getElementById(id || '');
+            const anchor = e.target.closest?.('a');
+            if (!anchor) return;
+            const href = anchor.getAttribute('href');
+            if (!href || !href.startsWith('#') || href === '#') return;
 
-                if (element) {
-                    window.scrollTo({
-                        behavior: 'smooth',
-                        top: element.offsetTop - 80 // Account for header height
-                    });
+            const id = href.substring(1);
+            const element = document.getElementById(id);
+            if (!element) return;
 
-                    // Update URL without page reload
-                    history.pushState(null, '', target.getAttribute('href') || '');
-                }
-            }
+            e.preventDefault();
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.pushState(null, '', href);
         };
 
         document.addEventListener('click', handleAnchorClick);

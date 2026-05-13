@@ -8,8 +8,18 @@ const CustomCursor = () => {
   const [isHoveringLink, setIsHoveringLink] = useState(false);
   const [isHoveringText, setIsHoveringText] = useState(false);
   const [cursorText, setCursorText] = useState("");
+  const [isFinePointer, setIsFinePointer] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia('(pointer: fine)');
+    setIsFinePointer(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsFinePointer(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
+    if (!isFinePointer) return;
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -69,7 +79,9 @@ const CustomCursor = () => {
       observer.disconnect();
       document.body.style.cursor = 'auto';
     };
-  }, []);
+  }, [isFinePointer]);
+
+  if (!isFinePointer) return null;
 
   // Draw a beaver tooth cursor
   const renderBeaverCursor = () => {
