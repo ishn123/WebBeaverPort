@@ -56,15 +56,17 @@
     /* Offset in-page anchors so they don't slide under the fixed Navbar. */
     scroll-padding-top: 5rem;
     -webkit-text-size-adjust: 100%;
-  }
-
-  html, body {
-    overflow-x: hidden;
-    max-width: 100%;
+    /* `overflow-x: hidden` on <body> breaks position:fixed on iOS Safari
+       (the body becomes the scroll container and the fixed Navbar scrolls
+       away with the page). `overflow-x: clip` clips overflow without
+       creating a new scrolling context, so the Navbar stays put. */
+    overflow-x: clip;
   }
 
   body {
     @apply bg-background text-foreground font-cabin;
+    overflow-x: clip;
+    max-width: 100vw;
   }
 
   img, video {

@@ -52,12 +52,11 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-background/90 backdrop-blur-md py-3 shadow-sm'
-          : 'py-4 md:py-5'
+          ? 'bg-background/95 backdrop-blur-md py-3 shadow-sm'
+          : 'bg-background/70 backdrop-blur-sm py-4 md:py-5'
       }`}
-      style={{ paddingTop: 'max(env(safe-area-inset-top), 0px)' }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
