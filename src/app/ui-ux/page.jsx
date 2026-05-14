@@ -1,5 +1,36 @@
-"use client";
+import Script from 'next/script';
 import ServiceTemplate from '@/components/ServiceTemplate';
+import { SITE_URL, SITE_NAME, SERVICE_JSON_LD } from '@/lib/seo';
+
+export const metadata = {
+    title: 'UI/UX Design Services',
+    description:
+        'Human-centered UI/UX design services — user research, wireframing, prototyping, design systems, and usability testing. We craft intuitive interfaces that drive engagement and conversions.',
+    keywords: [
+        'UI design services',
+        'UX design agency',
+        'user experience design',
+        'product design',
+        'design system',
+        'wireframing',
+        'prototyping',
+        'usability testing',
+    ],
+    alternates: { canonical: '/ui-ux' },
+    openGraph: {
+        title: `UI/UX Design Services | ${SITE_NAME}`,
+        description:
+            'Human-centered UI/UX design — research, prototyping, and design systems that drive engagement and conversions.',
+        url: `${SITE_URL}/ui-ux`,
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: `UI/UX Design Services | ${SITE_NAME}`,
+        description:
+            'Human-centered UI/UX design — research, prototyping, and design systems that drive engagement and conversions.',
+    },
+};
 
 const UIDesignPage = () => {
     const service = {
@@ -51,7 +82,25 @@ const UIDesignPage = () => {
         ctaText: "Let's create an interface that delights your users and achieves your business objectives."
     };
 
-    return <ServiceTemplate service={service} />;
+    return (
+        <>
+            <ServiceTemplate service={service} />
+            <Script
+                id="ld-service-uiux"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        SERVICE_JSON_LD({
+                            name: 'UI/UX Design Services',
+                            description: service.description,
+                            path: '/ui-ux',
+                        }),
+                    ),
+                }}
+            />
+        </>
+    );
 };
 
 export default UIDesignPage;

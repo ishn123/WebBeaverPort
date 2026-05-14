@@ -1,7 +1,35 @@
-"use client";
 import 'swiper/css';
+import type { Metadata } from 'next';
 import BeaverCursor from "@/components/BeaverCursor";
 import Link from "next/link";
+import { SITE_URL, SITE_NAME } from "@/lib/seo";
+
+export const metadata: Metadata = {
+    title: 'About Us — Web Design & Development Team',
+    description:
+        'Meet the Webeaver team — developers, designers, and digital strategists building powerful, elegant, and scalable web solutions since 2023.',
+    keywords: [
+        'about Webeaver',
+        'web design team',
+        'web development team',
+        'digital agency team',
+        'Webeaver founders',
+    ],
+    alternates: { canonical: '/AboutUs' },
+    openGraph: {
+        title: `About Us | ${SITE_NAME}`,
+        description:
+            'A high-energy squad of developers, designers, and digital experts crafting powerful, elegant, scalable web solutions.',
+        url: `${SITE_URL}/AboutUs`,
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: `About Us | ${SITE_NAME}`,
+        description:
+            'A high-energy squad of developers, designers, and digital experts crafting powerful, elegant, scalable web solutions.',
+    },
+};
 
 const bgColor = "#8c7b6f";
 const primaryText = "#fffaf7"; // Slightly warm white

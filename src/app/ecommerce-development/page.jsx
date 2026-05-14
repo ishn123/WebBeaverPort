@@ -1,5 +1,36 @@
-"use client";
+import Script from 'next/script';
 import ServiceTemplate from '@/components/ServiceTemplate';
+import { SITE_URL, SITE_NAME, SERVICE_JSON_LD } from '@/lib/seo';
+
+export const metadata = {
+    title: 'E-commerce Development Services',
+    description:
+        'High-converting e-commerce development — Shopify, WooCommerce, and custom storefronts. Mobile-first UX, optimized checkout, payment integrations, and conversion analytics.',
+    keywords: [
+        'e-commerce development',
+        'Shopify development',
+        'WooCommerce development',
+        'online store development',
+        'custom e-commerce',
+        'conversion rate optimization',
+        'checkout optimization',
+    ],
+    alternates: { canonical: '/ecommerce-development' },
+    openGraph: {
+        title: `E-commerce Development Services | ${SITE_NAME}`,
+        description:
+            'High-converting e-commerce stores on Shopify, WooCommerce, and custom stacks — mobile-first UX and optimized checkout.',
+        url: `${SITE_URL}/ecommerce-development`,
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: `E-commerce Development Services | ${SITE_NAME}`,
+        description:
+            'High-converting e-commerce stores on Shopify, WooCommerce, and custom stacks — mobile-first UX and optimized checkout.',
+    },
+};
+
 const EcommercePage = () => {
     const service = {
         title: "E-commerce Solutions",
@@ -50,7 +81,25 @@ const EcommercePage = () => {
         ctaText: "Let's build an online store that grows your business and delights your customers."
     };
 
-    return <ServiceTemplate service={service} />;
+    return (
+        <>
+            <ServiceTemplate service={service} />
+            <Script
+                id="ld-service-ecommerce"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        SERVICE_JSON_LD({
+                            name: 'E-commerce Development Services',
+                            description: service.description,
+                            path: '/ecommerce-development',
+                        }),
+                    ),
+                }}
+            />
+        </>
+    );
 };
 
 export default EcommercePage;

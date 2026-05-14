@@ -1,5 +1,35 @@
-"use client";
+import Script from 'next/script';
 import ServiceTemplate from '@/components/ServiceTemplate';
+import { SITE_URL, SITE_NAME, SERVICE_JSON_LD } from '@/lib/seo';
+
+export const metadata = {
+    title: 'WordPress Development Services',
+    description:
+        'Custom WordPress development — bespoke themes and plugins, performance-tuned WooCommerce stores, headless WordPress with Next.js, and ongoing maintenance.',
+    keywords: [
+        'WordPress development agency',
+        'custom WordPress theme',
+        'custom WordPress plugin',
+        'WooCommerce development',
+        'headless WordPress',
+        'WordPress maintenance',
+        'WordPress speed optimization',
+    ],
+    alternates: { canonical: '/wordpress-development' },
+    openGraph: {
+        title: `WordPress Development Services | ${SITE_NAME}`,
+        description:
+            'Bespoke WordPress themes, plugins, and headless setups built for speed, security, and easy content management.',
+        url: `${SITE_URL}/wordpress-development`,
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: `WordPress Development Services | ${SITE_NAME}`,
+        description:
+            'Bespoke WordPress themes, plugins, and headless setups built for speed, security, and easy content management.',
+    },
+};
 
 const WordPressPage = () => {
     const service = {
@@ -57,7 +87,25 @@ const WordPressPage = () => {
         ctaText: "Ready for a WordPress site that stands out from the crowd? Let's talk about your project."
     };
 
-    return <ServiceTemplate service={service} />;
+    return (
+        <>
+            <ServiceTemplate service={service} />
+            <Script
+                id="ld-service-wordpress"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        SERVICE_JSON_LD({
+                            name: 'WordPress Development Services',
+                            description: service.description,
+                            path: '/wordpress-development',
+                        }),
+                    ),
+                }}
+            />
+        </>
+    );
 };
 
 export default WordPressPage;

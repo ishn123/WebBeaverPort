@@ -1,5 +1,37 @@
-"use client";
+import Script from 'next/script';
 import ServiceTemplate from '@/components/ServiceTemplate';
+import { SITE_URL, SITE_NAME, SERVICE_JSON_LD } from '@/lib/seo';
+
+export const metadata = {
+    title: 'Web Application Development',
+    description:
+        'Custom web application development with Next.js, React, and Node.js. Scalable SPAs, server-rendered apps, real-time features, API integrations, and PWAs built for business outcomes.',
+    keywords: [
+        'web application development',
+        'Next.js development',
+        'React development',
+        'Node.js development',
+        'SaaS development',
+        'custom web app',
+        'PWA development',
+        'API integration',
+    ],
+    alternates: { canonical: '/web-applications' },
+    openGraph: {
+        title: `Web Application Development | ${SITE_NAME}`,
+        description:
+            'Scalable, modern web apps built with Next.js, React, and Node.js — designed for performance and business outcomes.',
+        url: `${SITE_URL}/web-applications`,
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: `Web Application Development | ${SITE_NAME}`,
+        description:
+            'Scalable, modern web apps built with Next.js, React, and Node.js — designed for performance and business outcomes.',
+    },
+};
+
 const WebAppsPage = () => {
     const service = {
         title: "Web Applications",
@@ -49,7 +81,25 @@ const WebAppsPage = () => {
         ctaText: "Have an idea for a web application? Let's turn it into reality with clean, maintainable code."
     };
 
-    return <ServiceTemplate service={service} />;
+    return (
+        <>
+            <ServiceTemplate service={service} />
+            <Script
+                id="ld-service-webapps"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        SERVICE_JSON_LD({
+                            name: 'Web Application Development',
+                            description: service.description,
+                            path: '/web-applications',
+                        }),
+                    ),
+                }}
+            />
+        </>
+    );
 };
 
 export default WebAppsPage;

@@ -1,3 +1,4 @@
+"use client";
 // components/ServiceTemplate.jsx
 import { motion } from 'framer-motion';
 import BeaverCursor from "./BeaverCursor";

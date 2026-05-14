@@ -1,5 +1,37 @@
-"use client";
+import Script from 'next/script';
 import ServiceTemplate from '@/components/ServiceTemplate';
+import { SITE_URL, SITE_NAME, SERVICE_JSON_LD } from '@/lib/seo';
+
+export const metadata = {
+    title: 'SEO Optimization Services',
+    description:
+        'Data-driven SEO services — technical audits, keyword strategy, on-page optimization, content, and link-building to rank higher and drive qualified organic traffic.',
+    keywords: [
+        'SEO services',
+        'SEO agency',
+        'technical SEO',
+        'on-page SEO',
+        'keyword research',
+        'SEO audit',
+        'content optimization',
+        'link building',
+        'search engine optimization',
+    ],
+    alternates: { canonical: '/seo-optimization' },
+    openGraph: {
+        title: `SEO Optimization Services | ${SITE_NAME}`,
+        description:
+            'Rank higher and convert better with technical SEO, keyword strategy, and content optimization tuned to your business.',
+        url: `${SITE_URL}/seo-optimization`,
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: `SEO Optimization Services | ${SITE_NAME}`,
+        description:
+            'Rank higher and convert better with technical SEO, keyword strategy, and content optimization tuned to your business.',
+    },
+};
 
 const SEOPage = () => {
     const service = {
@@ -49,7 +81,25 @@ const SEOPage = () => {
         ctaText: "Ready to dominate search results? Let's optimize your online presence."
     };
 
-    return <ServiceTemplate service={service} />;
+    return (
+        <>
+            <ServiceTemplate service={service} />
+            <Script
+                id="ld-service-seo"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        SERVICE_JSON_LD({
+                            name: 'SEO Optimization Services',
+                            description: service.description,
+                            path: '/seo-optimization',
+                        }),
+                    ),
+                }}
+            />
+        </>
+    );
 };
 
 export default SEOPage;
